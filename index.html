@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+	<title>Junior Music</title>
+	<meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
+  	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/chartist.min.css" />
+	<!-- JS FILE's  -->
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/jquery.audioControls.min.js"></script>
+    <script src="assets/js/dragdealer.js"></script>
+    <script src="assets/js/chartist.js"></script>
+    
+</head>
+
+    
+<body>
+    <div class="mainContainer">
+        <div class="containerPlayer">
+            
+            <div class="albumCoverBorderTop"></div>
+            <div class="albumCoverBorderRight"></div>
+            <div class="albumCoverBorderBottom"></div>
+            <div class="albumCoverBorderLeft"></div>
+            
+            <img id="albumCover"/>
+            
+            <div class="downVote"></div>
+            <div class="detailIcon"></div>
+            <div class="musicBarsIcon">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                <div class="bar4"></div>
+            `</div>
+            
+            <div id="listContainer" class="playlistContainer">
+                <ul id="playListContainer" class="songList"></ul>
+            </div>
+            
+            <div id="playerContainer">
+                
+                
+                <div id="controlContainer"> 
+                    <div class="moderatorCrop">
+                        <img src="assets/images/controls/laura_morely.jpg">
+                    </div>
+                    
+                    <div class="divider"></div>
+                    <div class="listFade" id="fadeTop"></div>
+                    <div class="listFade" id="fadeBottom"></div>
+                    
+                    <div class="bigPlay bigButton"></div>
+                    <div class="bigPause bigButton"></div>
+
+
+                    <ul class="controls">
+                    <li>
+                        <a href="#" class="shuffle shuffleActive" data-attr="shuffled"></a>
+                    </li>
+                        <li>
+                            <a href="#" class="left" data-attr="prevAudio"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="play" data-attr="playPauseAudio"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="right" data-attr="nextAudio"></a>
+                        </li>
+                        <li>
+                            <a href="#" class="repeat" data-attr="repeatSong"></a>
+                        </li>
+                    </ul>
+                    <div class="audioDetails">
+                        <span class="songPlayTitle"></span>
+                        <span class="songPlayArtist"></span>
+                        <span data-attr="timer" class="audioTime"></span>
+                    </div>
+                    <div class="progress">
+                        <div data-attr="seekableTrack" class="seekableTrack"></div>
+                        <div class="updateProgress"></div>
+                    </div>
+
+                </div>
+
+                <div class="volumeControl">
+                    <div class="volume volume1"></div>
+                    <input class="bar" data-attr="rangeVolume" type="range" min="0" max="1" step="0.1" value="0" />
+                </div>
+            </div>
+        </div>
+        
+<!--  Details View  -->
+        
+        <div class="detailContainer">
+            <div class="detailBG">
+                    
+                <div class="graphClip">
+                    <div id="simple-slider" class="dragdealer">
+                        <div class="handle red-bar">
+                            <div class="graphContainer">
+                                <div class="graph"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+
+
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>	
