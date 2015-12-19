@@ -33,8 +33,8 @@ li {
 
 .mainContainer {
     margin: 0 auto;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
         
 }
 
@@ -76,7 +76,7 @@ li {
 
 #listContainer {
     position: absolute;
-    width: 325px;
+    width: calc(20vw);
     height: 100vh;
     background-color: #fff;
     top:0;
@@ -85,9 +85,8 @@ li {
 }
 
 #listContainer ul {
-    width: 100%;
-    height: 100%;
-    margin-top: calc(50vh - 10px);
+    position: relative;
+    margin-top: calc(50vh - 15px);
     background-color: #ffffff;
     clear: both;
     cursor: pointer;
@@ -95,34 +94,31 @@ li {
 
 #listContainer li {
     height: 50px;
+    margin-top: 2.2vh;
     
 }
 
 
 #listContainer li a {
     text-decoration: none;
+    position: relative;
 }
 
 #listContainer li h4 {
-    font-size: 16px;
+    font-size: 2.2vh;
     font-family: 'din_bold';
     text-decoration: none;
     color: #000;
-    margin-left: 100px;
+    margin-left: calc(10vw - 60px);
 }
-
-#listContainer li h4 {
-    font-size: 16px;
-    font-family: 'din_bold';
-    text-decoration: none;
-    color: #000;
-    margin-left: 100px;
-}
-
 
 #listContainer li.activeAudio a h4{
-    font-size: 26px;
-    margin-top: -7px;
+    font-size: 44px;
+}
+
+#listContainer li.activeAudio a {
+    bottom: 15px;
+
 }
 
 .songSelector1 {
@@ -164,16 +160,16 @@ li {
 
 #playerContainer {
     position: absolute;
-    width: 310px;
-    height: 185px;
-    margin-left: calc(100vw - 310px);
+    width: 20vw;
+    height: 25vh;
+    right: 0;
     background-color: #fff;
     z-index: 5;
     
 }
 
-.controls li:first {
-    margin-right: 10px
+.controls {
+    margin-left: calc(10vw - 140px);   
 }
 
 .controls li {
@@ -181,8 +177,9 @@ li {
     display: inline-block;
     width: 50px;
     text-align: center;
-    margin-top: 130px;
-    margin-left: 5px;
+    margin-top: calc(25vh - 100px);
+    margin-left: 0.7vw;
+    margin-right: 1vw;
     z-index: 3;
     
 }
@@ -192,40 +189,42 @@ li {
 }
 
 .moderatorCrop {
-    width: 65px;
-    height: 65px;
+    width: 4vw;
+    height: 4vw;
     position: absolute;
     overflow: hidden;
     border-radius: 50%;  
     
-    margin-top: 40px;
-    margin-left: 108px;
+    margin-top: 5vh;
+    margin-left: calc(10vw - 2vw);
     
 }
 
 .moderatorCrop img {
     display: inline;
     margin: 0 auto;
-    height: 65px;
+    height: 4vw;
     width: auto;
 }
 
 .divider {
     position: absolute;
-    width: 300px;
+    width: calc(20vw - 2vw);
     height: 1px;
-    background-color: #F2F2F2;
-    margin-top: 185px;
-    right: 0;
-    margin-right: 22px;
+    background-color: #E5E5E5;
+    margin-top: 25vh;
+    right: 1vw;
+    z-index: 7;
 }
 
 
 #fadeTop {
     position: absolute;
-    width: 320px;
-    height: calc(200px);
-    margin-top: 186px;
+    width: 20vw;
+    height: calc(50vh - 25vh);
+    margin-top: 25vh;
+    right: 0;
+    z-index: 5;
     
     background: rgba(255,255,255,1); /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(rgba(255,255,255,1), rgba(255,255,255,0)); /* For Safari 5.1 to 6.0 */
@@ -236,9 +235,11 @@ li {
 
 #fadeBottom {
     position: absolute;
-    width: 320px;
-    height: calc(350px);
-    margin-top: calc(100vh - 350px);   
+    width: 20vw;
+    height: calc(50vh);
+    bottom: 0;
+    right: 0;
+    z-index: 5;
     
     background: rgba(255,255,255,1); /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1)); /* For Safari 5.1 to 6.0 */
@@ -250,10 +251,12 @@ li {
 .playAudio,
 .play {
 /*    position: absolute;*/
-    background: url('../images/controls/play.png');
-    width: 35px;
-    height: 30px;
-    margin: auto;
+    background: url('../images/controls/play.svg');
+    background-repeat: no-repeat;
+    width: 2vw;
+    height: 2vw;
+    margin-left: 10px;
+    margin-top: 2px;
 }
 
 /*
@@ -263,24 +266,26 @@ li {
 */
 
 .bigPlay {
+    cursor: pointer;
     position: absolute;
-    background: url('../images/controls/playCenter.png');
+    background: url('../images/controls/playCenter.svg');
     background-repeat: no-repeat;
-    width: 200px;
-    height: 200px;
-    left: calc(-50vw + 35px);
-    top: calc(50vh - 100px);
+    width: 18vw;
+    height: 18vw;
+    left: calc(40vw - 9vw);
+    top: calc(50vh - 9vw);
     z-index: 7;
 }
 
 .bigPause {
+    cursor: pointer;
     position: absolute;
-    background: url('../images/controls/pauseCenter.png');
+    background: url('../images/controls/pauseCenter.svg');
     background-repeat: no-repeat;
-    width: 200px;
-    height: 200px;
-    left: calc(-50vw + 35px);
-    top: calc(50vh - 100px);
+    width: 18vw;
+    height: 18vw;
+    left: calc(40vw - 9vw);
+    top: calc(50vh - 9vw);
     z-index: 7;
     visibility: hidden;
   
@@ -288,12 +293,12 @@ li {
 
 .pauseAudio {
 /*    position: absolute;*/
-    background: url('../images/controls/pause.png');
-    width: 18px;
+    background: url('../images/controls/pause.svg');
+    width: 2vw;
+    height: 2vw;
     background-repeat: no-repeat;
-    height: 35px;
     margin-top: 4px;
-    margin-left: 0px;
+    margin-left: 6px;
 }
 
 /*
@@ -322,12 +327,10 @@ li {
 */
 
 .left {
-    background: url('../images/controls/previousSong.png');
-    width: 35px;
-    height: 24px;
-    margin: auto;
-    margin-top: 4px;
-    margin-right: 20px;
+    background: url('../images/controls/previousSong.svg');
+    background-repeat: no-repeat;
+    width: 2vw;
+    height: 2vw;
     opacity: 1;
 }
 
@@ -344,12 +347,10 @@ li {
 */
 
 .right {
-    background: url('../images/controls/nextSong.png');
-    width: 35px;
-    height: 24px;
-    margin: auto;
-    margin-top: 4px;
-    margin-left: 5px;
+    background: url('../images/controls/nextSong.svg');
+    background-repeat: no-repeat;
+    width: 2vw;
+    height: 2vw;
     opacity: 1;
 }
 
@@ -378,9 +379,8 @@ li {
     height: 20px;
     margin-left: 5px;
     margin-right: 5px;
-    float: left;
-    visibility: hidden;
     background: url('../images/audio/audio_icons.png') no-repeat;
+    visibility: hidden;
 }
 
 .volume1 {
@@ -401,12 +401,13 @@ li {
 
 .progress {
     position: absolute;
-    height: 2px;
+    height: 0.3vh;
     background-color: #000;
-    width: calc(40vw);
-    left: calc(-50vw + 175px);
+    width: calc(60vw - 19.5vw);
+    left: calc(40vw + 2.5vw);
     top: calc(50vh);
     cursor: pointer;
+    z-index: 6;
     
 }
 
@@ -444,17 +445,19 @@ input[type="range"] {
     color: #000;
     visibility: visible;
 }
+.click {
+    z-index: 50;   
+}
+
 
 .audioTime {
     position: absolute;
-    display: inline-block;
     text-align: left;
     float: left;
-    font: 60px 'din_bold', sans-serif;
-    width: 400px;
-    margin-left: -440px;
-    margin-top: 100px;
-/*    visibility: hidden;*/
+    font: 28px 'din_bold', sans-serif;
+    color: #EF4836;
+    margin-left: 3.9vw;
+    margin-top: -17.5vh;
     line-height: 1;
 }
 
@@ -463,16 +466,22 @@ input[type="range"] {
 .songPlayTitle {
     display: inline-block;
     font-family: 'din_bold';
-    font-size: 105px;
+    font-size: 15vh;
     padding: 0px;
-    width: 470px;
+    width: 35vw;
     letter-spacing: -1px;
-    margin-left: -450px;
-/*    margin-top: calc(50vh);*/
+    margin-left: -30vw;
+    margin-top: 20px;
     line-height: 1;
     text-align: left;
     text-transform: uppercase;
     color: #000;
+    
+    -webkit-transition: all ease 0.8s;
+    -moz-transition: all ease 0.8s;
+    -ms-transition: all ease 0.8s;
+    -o-transition: all ease 0.8s;
+    transition: all ease 0.8s;
     
     -moz-hyphens: none;
   -ms-hyphens: none;
@@ -487,16 +496,16 @@ input[type="range"] {
 .songPlayArtist {
     position: absolute;
     display: inline-block;
-    font-size: 100px;
+    font-size: 14vh;
     font-family: 'din_bold';
     padding: 0px;
     width: 450px;
     letter-spacing: -1px;
-    margin-left: -440px;
+    margin-left: -30vw;
     line-height: 1;
     text-align: left;
     text-transform: uppercase;
-    color: #ECF0F1;
+    color: #F2F2F2;
     
     -moz-hyphens: none;
   -ms-hyphens: none;
@@ -507,21 +516,21 @@ input[type="range"] {
 #albumCover {
     position: fixed;
 	top: 0;
-    margin-left: calc(0);
-    margin-top: calc(0);
+    margin-left: calc(-10vw);
+    margin-top: calc(-30vh);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center top;
 	position: absolute;
-	width: calc(100vw - 320px); 
+	width: calc(100vw); 
 /*	width: calc(100vw - 340px);*/
-	opacity: 0;
+	opacity: 1;
 }
 
 .albumCoverBorderTop {
     position: absolute;
-    width: calc(100vw - 325px);
-    height: 23px;
+    width: calc(80vw);
+    height: 1vw;
     background-color: #fff;
     z-index: 5;
 }
@@ -529,15 +538,15 @@ input[type="range"] {
 .albumCoverBorderBottom {
     position: absolute;
     bottom: 0;
-    width: calc(100vw - 325px);
-    height: 23px;
+    width: calc(80vw);
+    height: 1vw;
     background-color: #fff;
     z-index: 5;
 }
 
 .albumCoverBorderLeft {
     position: absolute;
-    width: 23px;
+    width: 1vw;
     height: 100vh;
     background-color: #fff;
     z-index: 5;
@@ -545,9 +554,10 @@ input[type="range"] {
 
 .albumCoverBorderRight {
     position: absolute;
-    width: 23px;
+    width: 30px;
+    width: 1vw;
     height: 100vh;
-    margin-left: calc(100vw - 325px);
+    right: calc(20vw - 1vw);
     background-color: #fff;
     z-index: 5;
 }
@@ -578,77 +588,168 @@ input[type="range"] {
 .detailIcon {
     position: Fixed;
     cursor: pointer;
-    background: url('../images/controls/linegraphicon.png');
+    background: url('../images/controls/linegraphicon.svg');
     background-repeat: no-repeat;
-    width: 40px;
-    height: 25px;
-    left: 50px;
-    bottom: 33px;
+    width: 3vw;
+    height: 3vw;
+    left: calc(2.2vw);
+    bottom: 2.5vh;
     z-index: 10;
 }
 
-/*
+.detailHeader {
+    display: inline-block;
+    font-family: 'din_bold';
+    font-size: 3vh;
+    width: 25vw;
+    padding: 0px;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-align: left;
+    color: #000;
+    margin-left: calc(40vw - 12.5vw);
+    margin-top: 20vh;
+    
+    -webkit-transition: all ease 0.8s;
+    -moz-transition: all ease 0.8s;
+    -ms-transition: all ease 0.8s;
+    -o-transition: all ease 0.8s;
+    transition: all ease 0.8s;
+    
+    -moz-hyphens: none;
+  -ms-hyphens: none;
+  -webkit-hyphens: none;
+  hyphens: none;   
+}
+
+.dragIcon  {
+    position: absolute;
+    background: url('../images/controls/dragIcon.svg');
+    background-repeat: no-repeat;
+    width: 3.5vw;
+    height: 3.5vw;   
+    left: calc(40vw - 1.75vw);
+    top: 70vh;  
+    
+    -webkit-transition: all ease 0.8s;
+    -moz-transition: all ease 0.8s;
+    -ms-transition: all ease 0.8s;
+    -o-transition: all ease 0.8s;
+    transition: all ease 0.8s;
+}
+
+.dragIcon h2 {
+    margin-top: 3.5vw; 
+    margin-left: -0.5vw;
+    font-family: 'din_bold';
+    font-size: 1.5vh;
+    width: 5.2vw;
+    padding: 0px;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-align: left;
+    color: #000;
+}
+
+.sunIcon {
+    position: absolute;
+    background: url('../images/controls/sun.svg');
+    background-repeat: no-repeat;
+    width: 2.5vw;
+    height: 2.5vw;
+    top: calc(60vh - 1.25vw);
+    left: calc(20vw - 3vw);
+    z-index: 10;
+}
+
+.moonIcon {
+    position: absolute;
+    background: url('../images/controls/moon.svg');
+    background-repeat: no-repeat;
+    width: 2.5vw;
+    height: 2.5vw;
+    top: calc(60vh - 1.25vw);
+    left: calc(60vw + 0.5vw);
+    z-index: 10;
+}
+
 .downVote {
     position: Fixed;
     cursor: pointer;
-    background: url('../images/controls/downvote.png');
+    background: url('../images/controls/downvote.svg');
     background-repeat: no-repeat;
-    width: 35px;
-    height: 35px;
-    left: 100px;
-    bottom: 31px;
+    width: 2.2vw;
+    height: 2.2vw;
+    left: 5.5vw;
+    bottom: 2.9vh;
     z-index: 10;    
-}
+
+/*
+    font-family: 'din_bold';
+    font-size: 1.5vh;
+    width: 5.2vw;
+    padding: 0px;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-align: left;
+    color: #000;
 */
+}
 
 .musicBarsIcon {
-    height: 28px;
-    left: 50px;
+    left: 2.6vw;
     position: fixed;
-    bottom: 35px;
-    width: 30px;
+    bottom: 4vh;
+    width: 3vw;
+    height: 3vw;
     visibility: hidden;
     cursor: pointer;
     z-index: 10;
 }
 
 .bar1 {
-   background: #000;
-    bottom: 1px;
-    height: 21px;
+    background: #000;
+    bottom: 0;
+    height: 2.5vh;
     position: absolute;
-    width: 6px;      
+    width: 0.4vw;
 
 }
 
 .bar2 {
    background: #000;
-    bottom: 1px;
-    height: 25px;
+    bottom: 0;
+    height: 3.4vh;
     position: absolute;
-    width: 6px;      
+    width: 0.4vw; 
+    margin-left: 0.2vw;
 
 }
 
 .bar3 {
    background: #000;
-    bottom: 1px;
-    height: 18px;
+    bottom: 0;
+    height: 2vh;
     position: absolute;
-    width: 6px;      
+    width: 0.4vw;  
+    margin-left: 0.4vw;
 }
 
 .bar4 {
    background: #000;
-    bottom: 1px;
-    height: 23px;
+    bottom: 0;
+    height: 2.9vh;
     position: absolute;
-    width: 6px;      
+    width: 0.4vw; 
+    margin-left: 0.6vw;
 
 }
 
 .animateMusicBars {
-    animation: sound 0ms -100ms linear infinite alternate;  
+    animation: sound1 0ms -100ms linear infinite alternate;
+    animation: sound2 0ms -100ms linear infinite alternate;  
+    animation: sound3 0ms -100ms linear infinite alternate;  
+    animation: sound4 0ms -100ms linear infinite alternate;  
     -webkit-transition: all ease 0.5s;
     -moz-transition: all ease 0.5s;
     -ms-transition: all ease 0.5s;
@@ -656,17 +757,49 @@ input[type="range"] {
     transition: all ease 0.5s;
 }
 
-@keyframes sound {
+@keyframes sound1 {
     0% {
        opacity: 1;
-        height: 12px; 
+        height: 3.4vh; 
     }
     100% {
         opacity: 1;       
-        height: 25px;        
+        height: 1vh;        
     }
 }
 
+@keyframes sound2 {
+    0% {
+       opacity: 1;
+        height: 3.4vh; 
+    }
+    100% {
+        opacity: 1;       
+        height: 1vh;        
+    }
+}
+
+@keyframes sound3 {
+    0% {
+       opacity: 1;
+        height: 2vh; 
+    }
+    100% {
+        opacity: 1;       
+        height: 1vh;        
+    }
+}
+
+@keyframes sound4 {
+    0% {
+       opacity: 1;
+        height: 2.9vh; 
+    }
+    100% {
+        opacity: 1;       
+        height: 1vh;        
+    }
+}
 .bar1:nth-child(1)  { left: 0px; animation-duration: 785ms;}
 .bar2:nth-child(2)  { left: 8px; animation-duration: 600ms; }
 .bar3:nth-child(3)  { left: 16px; animation-duration: 670ms; }
@@ -678,7 +811,7 @@ input[type="range"] {
 
 .detailBG {
     position: absolute;
-    width: calc(100vw - 325px);
+    width: calc(80vw);
     height: 100vh;
     background-color: #fff;
     -webkit-transition: all ease 0.5s;
@@ -690,43 +823,53 @@ input[type="range"] {
     opacity: 0;
 }
 
-.graphClip {
+.graphParent {
     position: absolute;
-    margin-left: 165px;
-    margin-top: calc(50vh - 150px);
-    width: calc(100vw - 325px - 330px);  
-    height: 205px;
-    height: 35vh;
-    clip: rect(0px, 595px, 300px, 0px);
-}
-
-.graphContainer {
-/*    position: absolute;*/
-    width: 1685px;
-    height: 200px;  
-    margin-left: -822.5px;
-    margin-top: -180px;
-    
+    width: 40vw;
+    height: 30vh;
+    top: 35vh;
+    left: 20vw;
+    overflow: hidden;
+    z-index: 8;
 
 }
 
 .graph {
-    background: url('../images/controls/graph.png');
+    position: absolute;
+    background: url('../images/controls/graph.svg');
     background-repeat: no-repeat;   
-    width: 1685px;
-    height: 200px;
+    width: 100vw;
+    height: 20vh;
+    margin-left: calc(-50vw + 10px);
+    top: calc(-20vh);
+    opacity: 1;
+    
+    -webkit-transition: all ease 0.8s;
+    -moz-transition: all ease 0.8s;
+    -ms-transition: all ease 0.8s;
+    -o-transition: all ease 0.8s;
+    transition: all ease 0.8s;
     
 }
 
+
+
+
 .dragdealer {
     position: relative;
+    margin-top: 25vh;
     height: 2px;
-    width: calc(100vw - 325px - 330px);
-    margin-top: calc(50vh - 120px);
-    margin-left: 0px;
+    width: calc(40vw);
     background: #000;
     
+    -webkit-transition: all ease 0.8s;
+    -moz-transition: all ease 0.8s;
+    -ms-transition: all ease 0.8s;
+    -o-transition: all ease 0.8s;
+    transition: all ease 0.8s;
+    
 }
+
 .dragdealer .handle {
     position: absolute;
     margin-top: -9px;
@@ -735,6 +878,13 @@ input[type="range"] {
     cursor: pointer;
     z-index: 20;
 }
+
+/*
+.dragdealer .handle:active .graph {
+    margin-top: -180px;
+}
+*/
+
 .dragdealer .red-bar {
     width: 20px;
     height: 20px;
@@ -747,7 +897,7 @@ input[type="range"] {
 
 
 .fadeIn {
-    opacity: 0.9;   
+    opacity: 0.8;   
 }
 
 .fadeOut {
@@ -770,6 +920,14 @@ input[type="range"] {
 @-moz-keyframes fadeOut { from {opacity: .9;} to {opacity: 0;}}
 @keyframes fadeOut { from {opacity: .9;} to {opacity: 0;}}
 
+@-webkit-keyframes detailFadeIn { from {opacity: 0;} to {opacity: 1;}}
+@-moz-keyframes detailFadeIn { from {opacity: 0;} to {opacity: 1;}}
+@keyframes detailFadeIn { from {opacity: 0;} to {opacity: 1;}}
+
+@-webkit-keyframes detailFadeOut { from {opacity: 1;} to {opacity: 0;}}
+@-moz-keyframes detailFadeOut { from {opacity: 1;} to {opacity: 0;}}
+@keyframes detailFadeOut { from {opacity: 1;} to {opacity: 0;}}
+
 .active {
     font-size: 22px;
 }
@@ -777,3 +935,17 @@ input[type="range"] {
 .inactive {
     font-size: 16px;
 }
+
+.detailFadeIn {
+    -webkit-transform: translate(0, -2vh);
+    -moz-transform: translate(0, -2vh);
+    -o-transform: translate(0, -2vh);
+    -ms-transform: translate(0, -2vh);
+    transform: translate(0, -2vh);  
+    
+       
+}
+
+    
+
+

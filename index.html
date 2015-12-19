@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
   	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/chartist.min.css" />
+
 	<!-- JS FILE's  -->
 	<script src="assets/js/jquery.js"></script>
 	<script src="assets/js/jquery.audioControls.min.js"></script>
@@ -18,16 +19,17 @@
     
 <body>
     <div class="mainContainer">
-        <div class="containerPlayer">
-            
-            <div class="albumCoverBorderTop"></div>
+        
+        
+        
+        <div class="albumCoverBorderTop"></div>
             <div class="albumCoverBorderRight"></div>
             <div class="albumCoverBorderBottom"></div>
             <div class="albumCoverBorderLeft"></div>
             
             <img id="albumCover"/>
             
-            <div class="downVote"></div>
+            
             <div class="detailIcon"></div>
             <div class="musicBarsIcon">
                 <div class="bar1"></div>
@@ -36,8 +38,21 @@
                 <div class="bar4"></div>
             `</div>
             
+            <div class="bigPlay bigButton"></div>
+            <div class="bigPause bigButton"></div>
+        
+            <div class="divider"></div>
+            <div class="listFade" id="fadeTop"></div>
+            <div class="listFade" id="fadeBottom"></div>
+        
+        <div class="containerPlayer">
             <div id="listContainer" class="playlistContainer">
                 <ul id="playListContainer" class="songList"></ul>
+            </div>
+            
+            <div class="progress">
+                <div data-attr="seekableTrack" class="seekableTrack"></div>
+                <div class="updateProgress"></div>
             </div>
             
             <div id="playerContainer">
@@ -48,18 +63,8 @@
                         <img src="assets/images/controls/laura_morely.jpg">
                     </div>
                     
-                    <div class="divider"></div>
-                    <div class="listFade" id="fadeTop"></div>
-                    <div class="listFade" id="fadeBottom"></div>
-                    
-                    <div class="bigPlay bigButton"></div>
-                    <div class="bigPause bigButton"></div>
-
-
                     <ul class="controls">
-                    <li>
-                        <a href="#" class="shuffle shuffleActive" data-attr="shuffled"></a>
-                    </li>
+
                         <li>
                             <a href="#" class="left" data-attr="prevAudio"></a>
                         </li>
@@ -69,25 +74,18 @@
                         <li>
                             <a href="#" class="right" data-attr="nextAudio"></a>
                         </li>
-                        <li>
-                            <a href="#" class="repeat" data-attr="repeatSong"></a>
-                        </li>
                     </ul>
                     <div class="audioDetails">
                         <span class="songPlayTitle"></span>
                         <span class="songPlayArtist"></span>
                         <span data-attr="timer" class="audioTime"></span>
                     </div>
-                    <div class="progress">
-                        <div data-attr="seekableTrack" class="seekableTrack"></div>
-                        <div class="updateProgress"></div>
-                    </div>
 
                 </div>
 
                 <div class="volumeControl">
                     <div class="volume volume1"></div>
-                    <input class="bar" data-attr="rangeVolume" type="range" min="0" max="1" step="0.1" value="0" />
+                    <input id="volumeSlider" class="bar" data-attr="rangeVolume" type="range" min="0" max="1" step="0.1" value="0.7" />
                 </div>
             </div>
         </div>
@@ -96,16 +94,53 @@
         
         <div class="detailContainer">
             <div class="detailBG">
+                
+                <h1 class="detailHeader">When is a better time for this song?</h1>
+                
+                    <div class="downVote"></div>
+
+                <div class="sunIcon"></div>
+                <div class="moonIcon"></div>
+                <div class="dragIcon">
+                    <h2>drag to adjust</h2>
+                </div>
+                
+                
+                <div class="graphParent">
+                    <div class="sliderParent">
+
+                        <div class="graphClip">
+                            <div id="simple-slider" class="dragdealer">
+                                <div class="handle red-bar">
+                                        <div class="graph"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+                
+                
+                
+                
+                
+<!--
+                <div class="graphParent">
                     
-                <div class="graphClip">
-                    <div id="simple-slider" class="dragdealer">
-                        <div class="handle red-bar">
-                            <div class="graphContainer">
-                                <div class="graph"></div>
+                    <div class="sunIcon"></div>
+                    <div class="moonIcon"></div>
+                
+                    <div class="graphClip">
+                        <div id="simple-slider" class="dragdealer">
+                            <div class="handle red-bar">
+                                <div class="graphContainer">
+                                    <div class="graph"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+-->
             </div>
         
         </div>
@@ -114,5 +149,23 @@
     </div>
 
     <script src="assets/js/script.js"></script>
+    <?php
+
+    if( isset($_POST['clicks']) ) { 
+    incrementClickCount();
+}
+
+function getClickCount()
+{
+    return (int)file_get_contents('clickit.txt');
+}
+
+function incrementClickCount()
+{
+    $count = getClickCount() + 1;
+    file_put_contents("clickit.txt", $count);
+}
+ 
+?>
 </body>
 </html>	

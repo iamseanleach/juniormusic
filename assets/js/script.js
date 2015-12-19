@@ -1,22 +1,22 @@
-//var dir = "songs/";
-//var fileextension = ".mp3";
-//var songName = "Song";
-//$.ajax({
-//    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
-//    url: dir,
-//    success: function (data) {
-//        //List all .png file names in the page
-//        $(data).find("a:contains(" + fileextension + ")").each(function () {
-//            var filename = this.href.replace(window.location.host, "").replace("http://", "");
-//            $("#playListContainer").append("<li class='songFile' data-src='" + filename + "'>");    
-//        });
-//    }
-//
-//});
-//
-//    $(document).ajaxComplete(function() {
-//        $(".songFile").append("<a>" + songName + "</a>");
-//});
+var dir = "songs/";
+var fileextension = ".mp3";
+var songName = "Song";
+$.ajax({
+    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+    url: dir,
+    success: function (data) {
+        //List all .png file names in the page
+        $(data).find("a:contains(" + fileextension + ")").each(function () {
+            var filename = this.href.replace(window.location.host, "").replace("http://", "");
+            $("#playListContainer").append("<li class='songFile' data-src='" + filename + "'>");    
+        });
+    }
+
+});
+
+    $(document).ajaxComplete(function() {
+        $(".songFile").append("<a><h4>" + "I'm Yours" + "</h4></a>");
+});
 
 // local playlist data
             
@@ -30,8 +30,8 @@ var playlist = [
     },
     {
         song_id: 2,
-        song_title: "Paradise",
-        song_artist: "Cris Cab",
+        song_title: "Deja Vu",
+        song_artist: "Urban Cone",
         song_url: "songs-loaded/Dreams-Beck.mp3",
         song_cover_url: "covers/criscab.jpg"
     },
@@ -143,7 +143,7 @@ var playlist = [
     {
         song_id: 18,
         song_title: "I Do",
-        song_artist: "Susie Suh",
+        song_artist: "Susie",
         song_url: "songs-loaded/SusieSuh-I Do.mp3",
         song_cover_url: "covers/ido.jpg"
     },
@@ -175,6 +175,8 @@ $(document).ready(function(){
 //        console.log('details');
         $('.detailContainer').css("visibility", "visible"),
         $('.detailBG').toggleClass('fadeIn'),
+        $('.dragIcon').toggleClass('detailFadeIn'),
+        $('.dragIcon').addClass('fadeIn'),
         $('.bigButton').toggleClass('fadeOut'),
         $('.progress').toggleClass('fadeOut'),
         $('.songPlayTitle').toggleClass('fadeOut'),
@@ -190,6 +192,7 @@ $(document).ready(function(){
         $('.detailIcon').css("visibility", "visible"),
         $('.musicBarsIcon').css("visibility", "hidden"),
         $('.detailBG').toggleClass('fadeIn'),
+        $('.dragIcon').toggleClass('detailFadeIn'),
         $('.bigButton').toggleClass('fadeOut'),
         $('.progress').toggleClass('fadeOut'),
         $('.songPlayTitle').toggleClass('fadeOut'),
@@ -197,6 +200,82 @@ $(document).ready(function(){
         $('.audioTime').toggleClass('fadeOut');
     });
     
+    
+    document.onkeydown = key_control;
+    document.onkeyup = resetKeys;
+        
+        var lowVolume = 0;
+        var highVolume = 1;
+        var initialVolume = 0.7;
+        var volumeStep = 0.1;
+        var volume = initialVolume;
+        var keys = {
+            d: false,
+            g: false,
+            f: false,
+            a: false,
+            s: false
+        }
+
+        function key_control(e){
+//            e.preventDefault()
+            console.log(e);
+//            $('#volumeSlider').focus();
+            
+            if(e.keyCode == 68){
+                console.log('d');  
+                
+                console.log($(".play"));
+                $(".play").trigger("click");
+                
+            } else if(e.keyCode == 71) {
+                
+                console.log('g');   
+                
+//                if(volume <= highVolume) {
+//                    volume+=volumeStep;
+//                    console.log(volume);
+//                    var event = $.Event( "keydown", { keyCode: 122 } );
+//                    $( "#volumeSlider" ).trigger( event );
+//                }
+                
+//                    $('#volumeSlider').focus();
+//                $('#volumeSlider').on('focus', function() {
+//                    console.log('focused');
+ 
+                    
+//                    
+//                });
+                
+            } else if(e.keyCode == 70) {
+                console.log('f'); 
+//                if(volume >= lowVolume) {
+//                    volume-=volumeStep;
+//                    console.log(volume);
+//                    var event = $.Event( "keydown", { keyCode: 123 } );
+//                    $( "#volumeSlider" ).trigger( event );
+//                }
+                
+                
+            } else if(e.keyCode == 65) {
+                console.log('a'); 
+                $(".right").trigger("click");
+                
+            } else if(e.keyCode == 83) {
+                console.log('s'); 
+                $(".left").trigger("click");
+            }
+            
+        }
+    
+
+        function resetKeys(e) {
+           if(e.keyCode == 68){
+               keys['d'] = false; 
+           } else if(e.keyCode == 69){
+               keys['e'] = false; 
+           }  
+        }
     
     
     
@@ -206,7 +285,7 @@ $(document).ready(function(){
     
     // next & previous song variables
     var listTop = 0;
-    var transitionDistance = 50;
+    var transitionDistance = 78;
     var initialTrackPosition = 1;
     var lastTrackPosition = playlist.length;
     var currentTrackPosition = initialTrackPosition;
